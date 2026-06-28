@@ -6,48 +6,87 @@ import {
   Wallet,
   Receipt,
   TrendingUp,
-  HeartPulse,
+  Activity,
   Bot,
   Settings,
 } from "lucide-react";
 
 const menu = [
-  { title: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-  { title: "Revenue", href: "/revenue", icon: Wallet },
-  { title: "Expenses", href: "/expenses", icon: Receipt },
-  { title: "Forecast", href: "/forecast", icon: TrendingUp },
-  { title: "Health", href: "/health", icon: HeartPulse },
-  { title: "AI CFO", href: "/ai-cfo", icon: Bot },
-  { title: "Settings", href: "/settings", icon: Settings },
+  {
+    name: "Dashboard",
+    href: "/dashboard",
+    icon: LayoutDashboard,
+  },
+  {
+    name: "Revenue",
+    href: "/revenue",
+    icon: Wallet,
+  },
+  {
+    name: "Expenses",
+    href: "/expenses",
+    icon: Receipt,
+  },
+  {
+    name: "Forecast",
+    href: "/forecast",
+    icon: TrendingUp,
+  },
+  {
+    name: "Health",
+    href: "/health",
+    icon: Activity,
+  },
+  {
+    name: "AI CFO",
+    href: "/ai-cfo",
+    icon: Bot,
+  },
+  {
+    name: "Settings",
+    href: "/settings",
+    icon: Settings,
+  },
 ];
 
 export default function Sidebar() {
   return (
-    <aside className="w-64 min-h-screen bg-[#111111] text-white p-6">
+    <aside className="w-72 bg-[#111111] text-white min-h-screen p-8">
+
       <h1 className="text-3xl font-bold text-[#D4AF37]">
         OroAI
       </h1>
 
-      <p className="text-gray-400 text-sm mt-1">
-        AI Financial Assistant
+      <p className="text-gray-400 mt-1">
+        Your AI CFO
       </p>
 
-      <nav className="mt-10 space-y-3">
+      <nav className="mt-12 space-y-3">
+
         {menu.map((item) => {
+
           const Icon = item.icon;
 
           return (
+
             <Link
-              key={item.title}
+              key={item.name}
               href={item.href}
-              className="flex items-center gap-3 rounded-xl p-3 hover:bg-[#1E1E1E]"
+              className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#1d1d1d] transition"
             >
-              <Icon size={20} />
-              {item.title}
+
+              <Icon size={20}/>
+
+              {item.name}
+
             </Link>
+
           );
+
         })}
+
       </nav>
+
     </aside>
   );
 }
